@@ -400,6 +400,9 @@ class AccelerateCB(TrainCB):
 
     def backward(self, learn): self.acc.backward(learn.loss)
 
+    def after_fit(self, learn):
+        learn.model = self.acc.unwrap_model(learn.model)
+
 # TODO tidy
 
 # %% ../miniminiai.ipynb 39
